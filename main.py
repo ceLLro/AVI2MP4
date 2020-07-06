@@ -1,6 +1,6 @@
 import os
 import sys
-
+import json
 import threading
 
 
@@ -16,12 +16,11 @@ import threading
 
 ################################################
 
-
 #Modify below for your needs
 
 ffmpegExe = "C:\\Users\\adria\\Desktop\\Github\\AVI2MP4\\ffmpeg-4.3-win64-static\\bin\\ffmpeg.exe"
 
-aviFilePath = "C:\\Users\\adria\\Desktop\Github\\nodejs_local_server\\videos\\"
+aviFilePath = "C:\\Users\\adria\\Desktop\\Github\\nodejs_local_server\\videos\\"
 
 files = []
 
@@ -29,7 +28,6 @@ def get_avi_file_path(source):
     for file in os.listdir(source):
         if file.endswith(".avi") or file.endswith(".AVI"):
             files.append(source + file)
-
 
 def convert_avi_to_mp4(avi_file_path, output_name):
     # print(
@@ -47,9 +45,16 @@ def convert_avi_to_mp4(avi_file_path, output_name):
 get_avi_file_path(aviFilePath)
 
 threads = []
-
-for f in files:
-    t = threading.Thread(target=convert_avi_to_mp4, args=(str("\"" + f + "\""), str("\"" + f + "\"")))
-    threads.append(t)
-    t.start()
+print("Start? yes/no")
+if(input() == 'yes'):
+    try:
+        for f in files:
+            t = threading.Thread(target=convert_avi_to_mp4, args=(str("\"" + f + "\""), str("\"" + f + "\"")))
+            threads.append(t)
+            t.start()
+    except:
+        print("Some error occured")
+        sys.exit()
+else:
+    sys.exit()
 
