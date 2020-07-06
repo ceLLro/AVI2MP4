@@ -6,7 +6,6 @@ aviFilePath = "c:\\Users\\adria\\Desktop\\Github\\Local_server\\videos\\"
 
 files = []
 
-
 def get_avi_file_path(source):
     idx = 0
     for file in os.listdir(source):
@@ -18,7 +17,6 @@ def get_avi_file_path(source):
 
     for f in ff:
         if "'" == f :
-
     print(str(files))
     with open('data.json', 'w') as f:
         f.write(ff)
