@@ -1,0 +1,6 @@
+./__pycache__/
+/.idea/
+/.vs/
+/ffmpeg-4.3-win64-static/
+/venv/
+__pycache__/json.cpython-38.pyc

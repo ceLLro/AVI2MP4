@@ -1,6 +1,6 @@
 import os
 import sys
-import simplejson as json
+
 
 aviFilePath = "c:\\Users\\adria\\Desktop\\Github\\Local_server\\videos\\"
 
@@ -15,9 +15,6 @@ def get_avi_file_path(source):
             idx = idx + 1
     ff = str(files)
 
-    for f in ff:
-        if "'" == f :
-    print(str(files))
     with open('data.json', 'w') as f:
         f.write(ff)
         f.close()
